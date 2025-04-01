@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.logo{
+    width: 100%;
+    height: 40vh;
+    padding: 20px;
+    background-color: #3333337d;
+    background-image: url("https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?b=1&s=612x612&w=0&k=20&c=HU9fGxunk5fCW3pN-I1cS53X8--QBgYYDUPInhyTMZU=");
+    background-size: cover;
+
+}
+.layer{
+    width: 100%;
+    height: 100%;
+    background-color: #3333337d;
+    border-radius: 20px;
+    padding: 10px;
+}
+.layer input{
+    padding: 10px;
+    width: 40%;
+    border-radius: 10px;
+    border: none;
+}
+.layer  #suggestions {
+    border: 1px solid #ccccccf1;
+    width: 38%;
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.507);
+}
+.suggestion {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+.suggestion:hover {
+    background: #f0f0f0;
+}
+
+.items-cart{
+    width: 100%;
+    background-color:#2d0105;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.outer{
+    background-color: #f9b20b2c;
+    width: 15%;
+    color: #e77c0a;
+    height: 250px;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.items{
+    background-color: #f9b20b2c;
+    width: 15%;
+    color: #e77c0a;
+    height: 250px;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.items img{
+    width: 80%;
+    height: 80%;
+    border-radius: 20px;
+}
+.items button{
+    width: 20%;
+    background-color: #FFF8E7;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+.outer img{
+    width: 80%;
+    height: 80%;
+    border-radius: 20px;
+}
+.outer button{
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+footer{
+    background-color: #080505d4;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #f9f3f3;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 1600px) {
+   
+}
+@media (max-width: 1000px) {
+    .items{
+        width: 25%;
+    }
+    .outer{
+        width: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    .items{
+        width: 40%;
+
+    }
+    .outer{
+        width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .items{
+        width: 40%;
+
+    }
+    .outer{
+        width: 40%;
+    }
+
+}
+
+
+@media (max-width: 361px) {
+
+
+}
