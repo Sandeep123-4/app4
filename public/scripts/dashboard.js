@@ -14,7 +14,9 @@ let buyButton
 
 
 document.addEventListener('DOMContentLoaded', async function () {
-    fetch("http://sandip.space/all/data/mongo/db/fetch")
+    fetch("https://sandip.space/all/data/mongo/db/fetch",{
+        method:"GET",
+    })
         .then(response => response.json()) // Convert response to JSON
         .then(data => {
             Data = data.item.reverse()
