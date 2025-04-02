@@ -1,12 +1,12 @@
 {
-    "name":"PWA Tutorial",
-    "short_name":"PWA",
-    "start_url":"http://localhost:3000/",
+    "name":"bazaar-sandeep",
+    "short_name":"bazaar",
+    "start_url":"https://sandip.space/",
     "display":"standalone",
     "background_color":"#5900b3",
     "theme_color":"black",
     "scope": ".",
-    "description":"This is a PWA tutorial.",
+    "description":"made by sandeep khanal",
     "icons":[
     {
     "src":"./imgs/bazaar-logo.png",                     
