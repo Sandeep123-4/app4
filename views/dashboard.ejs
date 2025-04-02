@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imiliya Market</title>
     <link rel="stylesheet" href="/styles/dashboard.css">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="/imgs/bazaar-logo.png" style="border-radius: 20px;">
 </head>
 <body>
@@ -33,5 +34,23 @@
         </div>
     </footer>
     <script src="scripts/dashboard.js"></script>
+    
 </body>
+<script>
+  window.addEventListener('load', () => {
+    registerSW();
+  });
+
+  async function registerSW() {
+    if ('serviceWorker' in navigator) {
+      try {
+        await navigator.serviceWorker.register('/service-worker.js'); // Use absolute path
+        console.log('SW registered successfully');
+      } catch (e) {
+        console.log('SW registration failed:', e);
+      }
+    }
+  }
+</script>
+
 </html>

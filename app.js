@@ -47,13 +47,16 @@ app.get("/manage-item", async (req, res) => {
   console.log(useritems);
   res.render("manageitem", {useritems});
 })
+app.get('/service-worker.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'service-worker.js'));
+});
 
 app.get('/admin/sandeep/khanal', (req, res) => {
   res.render('admin');
 });
 app.get("/all/data/mongo/db/fetch",async(req, res)=>{
 const fetcheditem = await itemschema.find({});
-  res.json({ message: "CORS enabled!", fetcheditem: fetchedItems });
+  res.json({fetcheditem});
 })
 
 app.post("/addItem", upload.single("img"),async(req,res)=>{
