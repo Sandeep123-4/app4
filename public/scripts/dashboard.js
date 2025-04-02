@@ -1,6 +1,6 @@
 const searchInput = document.getElementById("search");
 const suggestionsBox = document.getElementById("suggestions");
-let words = [];
+let Data = [];
 const items = document.getElementsByClassName("items")
 const Name = document.getElementsByClassName("name")
 const Price = document.getElementsByClassName("price")
@@ -13,33 +13,36 @@ let buyButton
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    fetch("https://sandip.space/all/data/mongo/db/fetch")
+document.addEventListener('DOMContentLoaded', async function () {
+    fetch("http://localhost:3000/all/data/mongo/db/fetch")
         .then(response => response.json()) // Convert response to JSON
         .then(data => {
-            words = data.map(item => ({itemname: item.itemname, img: item.img, price: item.price, quantity: item.quantity})).reverse();
-            
-        words.forEach(word => {
+            Data = data.item.reverse()
+            for(let i=0;i<=Data.length;i++){
+                console.log(Data[i].itemname);
+
     itemDiv = document.createElement("div");
         itemDiv.classList.add("items");
     img = document.createElement("img");
-        img.src ="/uploads/"+ word.img;
-        img.alt = word.itemname;
+        img.src ="/uploads/"+ Data[i].img;
+        img.alt = Data[i].itemname;
         itemDiv.appendChild(img);
     name = document.createElement("h3");
         name.classList.add("name");
-        name.textContent = word.itemname;
+        name.textContent = Data[i].itemname;
         itemDiv.appendChild(name);
     price = document.createElement("h3");
         price.classList.add("price");
-        price.textContent = "रु"+word.price;
+        price.textContent = "रु"+Data[i].price;
         itemDiv.appendChild(price);
     buyButton = document.createElement("button");
         buyButton.textContent = "Buy";
         itemDiv.appendChild(buyButton);
         document.querySelector(".items-cart").appendChild(itemDiv);
-        });
+                
+            }
         })
+
         .catch(error => console.error("Error fetching data:", error));
 });
 
@@ -52,7 +55,9 @@ searchInput.addEventListener("input", function () {
         return;
     }
 
-    const filteredWords = words.filter(word => word.itemname.toLowerCase().includes(query));
+    const filteredWords = Data.filter(item => item.itemname.toLowerCase().includes(query));
+    console.log(filteredWords);
+    
 
     if (filteredWords.length > 0) {
         suggestionsBox.style.display = "block";
@@ -65,7 +70,7 @@ searchInput.addEventListener("input", function () {
             div.addEventListener("click", () => {
                 searchInput.value = word.itemname;
                 suggestionsBox.style.display = "none";
-                const data = words.filter(word => word.itemname.toLowerCase().includes(query))
+                const data = Data.filter(word => word.itemname.toLowerCase().includes(query))
                 const cart =    document.querySelector(".items-cart")
                 cart.innerHTML = ""
 
@@ -101,6 +106,8 @@ searchInput.addEventListener("input", function () {
         suggestionsBox.style.display = "none";
     }
 });
+
+
 
 document.addEventListener("click", (e) => {
     if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
