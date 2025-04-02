@@ -8,12 +8,10 @@ self.addEventListener("install", function (e) {
   );
 });
  
-self.addEventListener("fetch", function (event) {
-  console.log(event.request.url);
- 
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(function (response) {
-      return response || fetch(event.request);
+    caches.match(event.request).then(cachedResponse => {
+      return cachedResponse || fetch(event.request);
     })
   );
 });

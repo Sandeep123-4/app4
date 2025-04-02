@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         .then(data => {
             Data = data.item.reverse()
             for(let i=0;i<=Data.length;i++){
-                console.log(Data[i].itemname);
 
     itemDiv = document.createElement("div");
         itemDiv.classList.add("items");
